@@ -1,0 +1,19 @@
+# WorkBuddy 应用追踪文件（内部 artifact，不提交）
+.wbapp_*.genie
+
+# EdgeOne 部署本地缓存（含整站副本，不提交）
+.edgeone/
+
+# 环境变量（可能含敏感信息，不提交）
+.env
+
+# WorkBuddy 内部配置
+.workbuddy/
+
+# macOS
+.DS_Store
+
+# 编辑器 / IDE
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="150" fill="#0E1525"/>
+  <text x="540" y="100" text-anchor="middle" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="58" font-weight="800" fill="#FFFFFF" letter-spacing="6">小 · 实用 · 安全</text>
+
+  <image x="0" y="150" width="1080" height="470" xlink:href="Flat_vector_illustration__thre_2026-11-02T00-52-54.png" preserveAspectRatio="xMidYMid slice"/>
+
+  <g font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif">
+    <text x="200" y="735" text-anchor="middle" font-size="48" font-weight="800" fill="#2f6bf6">小</text>
+    <text x="200" y="795" text-anchor="middle" font-size="31" fill="#444">体积小、不占资源</text>
+    <text x="200" y="840" text-anchor="middle" font-size="31" fill="#777">不装全家桶</text>
+
+    <text x="540" y="735" text-anchor="middle" font-size="48" font-weight="800" fill="#ff5000">实用</text>
+    <text x="540" y="795" text-anchor="middle" font-size="31" fill="#444">每款只解决</text>
+    <text x="540" y="840" text-anchor="middle" font-size="31" fill="#777">一件具体麻烦</text>
+
+    <text x="880" y="735" text-anchor="middle" font-size="48" font-weight="800" fill="#6d3bd6">安全</text>
+    <text x="880" y="795" text-anchor="middle" font-size="31" fill="#444">文件不出本机</text>
+    <text x="880" y="840" text-anchor="middle" font-size="31" fill="#777">不联网不上传</text>
+  </g>
+
+  <text x="540" y="980" text-anchor="middle" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700" fill="#0E1525">落到技术上：不联网 · 不上传 · 不订阅</text>
+</svg>

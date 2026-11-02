@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1300" viewBox="0 0 1080 1300">
+  <rect width="1080" height="1300" fill="#FFFFFF"/>
+
+  <text x="72" y="104" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="58" font-weight="800" fill="#0E1525">四款本地小工具</text>
+  <text x="74" y="160" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="32" fill="#777">各管一摊，共同的定位：小、实用、安全</text>
+
+  <image x="60" y="200" width="960" height="470" xlink:href="Flat_vector_illustration__four_2026-11-02T00-53-06.png" preserveAspectRatio="xMidYMid slice"/>
+
+  <g font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif">
+    <circle cx="100" cy="762" r="18" fill="#ff5000"/>
+    <text x="150" y="754" font-size="42" font-weight="700" fill="#0E1525">PDF 隐私涂抹工具</text>
+    <text x="150" y="802" font-size="30" fill="#666">（Mac / Win）PDF 敏感信息本地涂抹，快速 / 安全双模式</text>
+
+    <circle cx="100" cy="882" r="18" fill="#2b6cb0"/>
+    <text x="150" y="874" font-size="42" font-weight="700" fill="#0E1525">PuroPlayer 纯本地播放器</text>
+    <text x="150" y="922" font-size="30" fill="#666">（Mac / Win）纯本地、零联网看视频</text>
+
+    <circle cx="100" cy="1002" r="18" fill="#6d3bd6"/>
+    <text x="150" y="994" font-size="42" font-weight="700" fill="#0E1525">本地视频字幕工作箱</text>
+    <text x="150" y="1042" font-size="30" fill="#666">（macOS）本地给视频打轴、加字幕</text>
+
+    <circle cx="100" cy="1122" r="18" fill="#2f6bf6"/>
+    <text x="150" y="1114" font-size="42" font-weight="700" fill="#0E1525">PPT Player 轻量放映器</text>
+    <text x="150" y="1162" font-size="30" fill="#666">（Windows）不装 Office 也能放 PPT，1.2 MB 离线放映</text>
+  </g>
+
+  <text x="540" y="1250" text-anchor="middle" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2f6bf6">小工具，办正事。</text>
+</svg>

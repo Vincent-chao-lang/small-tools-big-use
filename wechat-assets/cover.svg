@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="mask" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0E1525" stop-opacity="0.94"/>
+      <stop offset="0.55" stop-color="#0E1525" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#0E1525" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f6bf6"/>
+      <stop offset="1" stop-color="#7CC4FF"/>
+    </linearGradient>
+  </defs>
+
+  <image x="0" y="0" width="1080" height="1080" xlink:href="Flat_vector_illustration__mini_2026-11-02T00-52-41.png" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="0" y="0" width="1080" height="1080" fill="url(#mask)"/>
+
+  <text x="72" y="332" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="800" fill="#FFFFFF" letter-spacing="2">小工具，</text>
+  <text x="72" y="442" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="92" font-weight="800" fill="#7CC4FF" letter-spacing="2">大用处。</text>
+
+  <text x="74" y="524" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="36" fill="#D7E0F0">小 · 实用 · 安全的本地生产力小工具</text>
+
+  <rect x="74" y="582" width="392" height="74" rx="37" fill="url(#accent)"/>
+  <text x="270" y="630" text-anchor="middle" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">小工具，办正事。</text>
+
+  <circle cx="92" cy="982" r="15" fill="#ff5000"/>
+  <circle cx="154" cy="982" r="15" fill="#7CC4FF"/>
+  <circle cx="216" cy="982" r="15" fill="#6d3bd6"/>
+  <circle cx="278" cy="982" r="15" fill="#2f6bf6"/>
+  <text x="310" y="990" font-family="'PingFang SC','Heiti SC','Microsoft YaHei',sans-serif" font-size="30" fill="#C7D2E8">四款各管一摊的本地小工具</text>
+</svg>
