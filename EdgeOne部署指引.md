@@ -72,13 +72,40 @@ smalltools.dabuside.top.pages.dnsoe5.com.  A  123.6.40.224
 
 ---
 
+## 项目拓扑（必读，2026-11-02 实测）
+
+这个站点在 EdgeOne Pages 下有**两个项目，绑同一个仓库**，一个域名的归属决定了线上是谁：
+
+| 项目 ID | 名称 | Area | 绑定的自定义域名 | 说明 |
+|---|---|---|---|---|
+| `makers-hhrkxqcq46dz` | `smalltools` | mainland | **`smalltools.dabuside.top`** | 真正对外服务的项目（域名在这一侧） |
+| `makers-jxsqyplbo86x` | `small-tools-big-use` | global | 无（只有 `*.edgeone.cool` 预设域名） | 同名于仓库，容易被误当成线上项目 |
+
+**「线上一直停在 15:09 那版」的真正原因**：域名绑在 `smalltools` 上，而这个项目当时代码来源还是 `Upload`（WorkBuddy 连接器直传的 15:09 那一次）。后面所有的 push 只触发 `small-tools-big-use` 的构建，域名自然纹丝不动。把 `smalltools` 也关联到同一仓库 `main` 之后，push 同时触发两个项目构建，域名立刻跟上。
+
+**代价**：一次 push 会构建两次（两个项目各一次）。要省掉这份冗余，做法是把 `small-tools-big-use`（global，无域名）删掉，只保留 `smalltools`。删之前务必确认它的自定义域名列表是空的——删错了域名会一起掉。
+
+**核对域名挂在哪：**
+
+```bash
+TOKEN=$(python3 -c "import json,glob;print(json.load(open(glob.glob('$HOME/.edgeone/*')[0]))['value']['Token'])")
+curl -s -X POST https://pages-api.cloud.tencent.com/v1 \
+  -H 'Content-Type: application/json' -H "Authorization: Bearer $TOKEN" \
+  -d '{"Action":"DescribePagesProjects","PageNumber":1,"PageSize":50}' \
+| python3 -c "import sys,json;[print(p['ProjectId'],p['Name'],p.get('Area'),'域名:',[d['Domain'] for d in p.get('CustomDomains') or []],'最近部署:',(p.get('Deployment') or {}).get('CreatedOn')) for p in json.load(sys.stdin)['Data']['Response']['Projects']]"
+```
+
+一行输出即可判定：**哪个项目带着你的域名，哪个项目就是线上**；它的「最近部署」时间必须与 `curl -I` 拿到的 `Last-Modified` 对得上。
+
+---
+
 ## 部署了新版，线上还是旧版——排查顺序
 
 按顺序查，前一条排除再走下一层：
 
 | # | 现象 | 原因 / 处理 |
 |---|---|---|
-| 0 | 项目「域名管理」里**只有** `xxx.edgeone.cool` 默认域名，**没有**你要用的自定义域名 | 域名绑在**另一个 EdgeOne Pages 项目**上（本项目历史上换过项目，域名留在老项目）。表现就是：本项目怎么部署都成功，域名永远返回老项目最后一次部署的内容。处理：去老项目「域名管理」删掉该域名 → 回本项目「添加自定义域名」→ TXT 归属验证 + CNAME 复用现有解析 → 重新检测。 |
+| 0 | 项目「域名管理」里**只有** `xxx.edgeone.cool` 默认域名，**没有**你要用的自定义域名 | 域名绑在**另一个 EdgeOne Pages 项目**上，而 push 只会构建被关联仓库的那个项目。表现：本项目每次构建都绿色成功，域名永远返回老项目最后一次部署的内容（`Last-Modified` 对得上老项目的部署时间）。处理：把**带域名的那个项目**也关联到同一仓库 `main`（见「项目拓扑」核对方法）。本项目历史实况就是这一条。 |
 | 1 | 部署命令行报 `[safe-delete] broker denied delete: path=.../.edgeone/assets/...` | WorkBuddy 给 Node 注入了 `NODE_OPTIONS` 删除钩子，会拦住 EdgeOne CLI 清空构建目录 `.edgeone/assets`，导致构建中断或上传旧产物。**部署命令前加 `env -u NODE_OPTIONS`**：<br>`env -u NODE_OPTIONS edgeone makers deploy --json` |
 | 2 | 部署成功，但自定义域名返回的仍是旧文件（`Last-Modified` 停在某次旧部署的时间；新加的文件访问 404） | 域名**没有跟随该项目最新部署**。去控制台 → 项目 → **域名管理** → 编辑该域名，确认「关联环境」是 **生产环境**（不是预览环境/某个固定版本）。官方口径：域名会自动指向所关联环境中**最新一次成功部署**；若关联的是预览环境，则只跟预览环境的部署。 |
 | 3 | 上一条改完仍不生效 | 把该域名**删除后重新添加**（TXT 归属验证 + CNAME 重新检测），或在该项目「构建部署」列表里把最新部署**设为生产版本 / 重新发布**。 |
@@ -95,7 +122,7 @@ smalltools.dabuside.top.pages.dnsoe5.com.  A  123.6.40.224
 
 ## 当前采用的方案：Git 仓库集成（push 即部署）
 
-**实测结论（2026-11-02）**：在已有项目上直接「关联 GitHub」后，该项目 Provider 会**原地变成 `Github`**；代价是**本地 CLI 直传部署立刻失效**。注意：项目改名/重建期间添加过的自定义域名**不会自动跟过来**，必须在新项目的「域名管理」里重新添加（见上面排查表第 0 条）。CLI 报错原文：
+**实测结论（2026-11-02）**：在已有项目上直接「关联 GitHub」后，该项目 Provider 会**原地变成 `Github`**，自定义域名绑定保持不变；代价是**本地 CLI 直传部署立刻失效**：
 
 ```
 Deployment failed: [getOrCreateProject] Project small-tools-big-use exists but has
@@ -103,7 +130,9 @@ Provider 'Github'. This project type does not support direct folder or zip file
 deployment. Only projects with Provider 'Upload' are supported.
 ```
 
-也就是说：从关联 GitHub 那一刻起，**只有 push 能更新站点**，`edgeone makers deploy` 对本项目不再可用。
+也就是说：从关联 GitHub 那一刻起，**只有 push 能更新站点**，`edgeone makers deploy` 对该项目不再可用。
+
+**关键前提**：域名绑在哪个项目，就必须把**那个项目**关联到仓库。只关联另一个项目，push 照样部署成功，线上照样不动（见上面「项目拓扑」）。
 
 ### 配置要点
 
@@ -135,6 +164,8 @@ deployment. Only projects with Provider 'Upload' are supported.
 | 项 | 正确值 / 做法 |
 |---|---|
 | 部署方式 | GitHub 仓库集成（push `main` 自动部署）；本地 CLI 部署仅作应急 |
+| 生效项目 | **带自定义域名的那个项目**必须关联同一仓库 `main`，否则 push 无效 |
+| 常见坑 | 账号下存在两个项目、只有一个关联仓库 → 域名停旧版 |
 | 构建命令 | 纯静态站留空，输出目录 `.`（用 `edgeone.json` 固定） |
 | 域名要求 | 已 ICP 备案 |
 | 控制台记录 | TXT（验证）+ CNAME（接入）都要加 |
