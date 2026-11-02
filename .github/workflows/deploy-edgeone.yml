@@ -1,0 +1,35 @@
+name: Deploy to EdgeOne Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: edgeone-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install EdgeOne CLI
+        run: npm install -g edgeone@latest
+
+      - name: Deploy to production
+        env:
+          PAGES_SOURCE: skills
+          EDGEONE_PAGES_API_TOKEN: ${{ secrets.EDGEONE_TOKEN }}
+        run: |
+          edgeone makers deploy \
+            -n small-tools-big-use \
+            -t "$EDGEONE_PAGES_API_TOKEN" \
+            --json
