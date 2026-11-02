@@ -24,7 +24,18 @@ jobs:
       - name: Install EdgeOne CLI
         run: npm install -g edgeone@latest
 
+      - name: Check token
+        id: token
+        env:
+          TOKEN: ${{ secrets.EDGEONE_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::warning::未配置 EDGEONE_TOKEN，跳过部署（见 EdgeOne部署指引.md）"
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Deploy to production
+        if: steps.token.outputs.skip != '1'
         env:
           PAGES_SOURCE: skills
           EDGEONE_PAGES_API_TOKEN: ${{ secrets.EDGEONE_TOKEN }}
