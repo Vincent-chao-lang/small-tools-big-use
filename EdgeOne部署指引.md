@@ -90,19 +90,30 @@ smalltools.dabuside.top.pages.dnsoe5.com.  A  123.6.40.224
 
 ---
 
-## 让 push 自动部署（GitHub Actions）
+## 当前采用的方案：Git 仓库集成（push 即部署）
 
-项目根目录的 `.github/workflows/deploy-edgeone.yml` 已经写好：push 到 `main` 或手动触发时，在 GitHub 的 runner 上装 CLI 并部署到同一项目（`small-tools-big-use`）。
+EdgeOne Pages 的「直接上传」类型项目**无法切换**成 Git 集成，只能在控制台**新建一个「导入 Git 仓库」的项目**，再把域名迁过去。本项目已按此路线走：
 
-启用只需要在 GitHub 仓库里加一个 secret：
+1. 控制台 → Pages → **导入 Git 仓库** → 授权 GitHub → 选 `Vincent-chao-lang/small-tools-big-use`，生产分支 `main`。
+2. 构建配置（纯静态站，仓库无 `package.json`）：
+   - 构建命令：**留空**
+   - 安装命令：**留空**
+   - 输出目录：`.`（根目录）
+   - 不要选 Vite/Next 等框架模板
+3. 仓库根目录的 `edgeone.json` 会把上述配置固定下来（控制台配置会被它覆盖），避免换环境后忘配：
 
-1. 取 API Token：EdgeOne 控制台 → Pages → **设置 → API Token → 创建**（账号级权限，勿外泄）。
-2. GitHub 仓库 → Settings → Secrets and variables → Actions → **New repository secret**。
-   - Name：`EDGEONE_TOKEN`
-   - Value：上一步的 token
-3. push 一次代码，或到 Actions 页面手动 Run workflow。
+   ```json
+   {
+     "buildCommand": "",
+     "installCommand": "",
+     "outputDirectory": "."
+   }
+   ```
 
-> 这条路不用把项目改成「导入 Git 仓库」类型（直接上传类型的项目无法切换成 Git 集成，硬切要新建项目并重绑域名）。代价是 token 存在 GitHub secret 里，属账号级权限，仓库必须保持 private，或定期轮换。
+4. 域名迁移（必须做，否则线上永远是旧版）：**先**在旧项目 `small-tools-big-use` 的域名管理里**解绑** `smalltools.dabuside.top`，**再**到新 Git 项目的域名管理里重新添加同一域名 → TXT 归属验证 + CNAME 复用现有解析 → 点「重新检测」→ 等证书签发。一个域名同一时刻只能绑一个项目。
+5. 之后每次 `git push origin main`，EdgeOne 自动拉取并部署，域名自动指向最新部署。
+
+> 已废弃的备选方案：GitHub Actions + `EDGEONE_TOKEN` 调 `edgeone makers deploy`，部署到旧的「直接上传」项目。两套并存会互相覆盖，已删除工作流文件。
 
 ---
 
@@ -110,7 +121,8 @@ smalltools.dabuside.top.pages.dnsoe5.com.  A  123.6.40.224
 
 | 项 | 正确值 / 做法 |
 |---|---|
-| 部署方式 | WorkBuddy 对话触发 EdgeOne 连接器 |
+| 部署方式 | GitHub 仓库集成（push `main` 自动部署）；本地 CLI 部署仅作应急 |
+| 构建命令 | 纯静态站留空，输出目录 `.`（用 `edgeone.json` 固定） |
 | 域名要求 | 已 ICP 备案 |
 | 控制台记录 | TXT（验证）+ CNAME（接入）都要加 |
 | CNAME 位置 | 父域 zone，不建独立子域 |
