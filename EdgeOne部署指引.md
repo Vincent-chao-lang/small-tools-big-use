@@ -92,15 +92,25 @@ smalltools.dabuside.top.pages.dnsoe5.com.  A  123.6.40.224
 
 ## 当前采用的方案：Git 仓库集成（push 即部署）
 
-EdgeOne Pages 的「直接上传」类型项目**无法切换**成 Git 集成，只能在控制台**新建一个「导入 Git 仓库」的项目**，再把域名迁过去。本项目已按此路线走：
+**实测结论（2026-11-02）**：在已有项目上直接「关联 GitHub」后，该项目 Provider 会**原地变成 `Github`**，域名绑定保留、无需迁移；代价是**本地 CLI 直传部署立刻失效**：
 
-1. 控制台 → Pages → **导入 Git 仓库** → 授权 GitHub → 选 `Vincent-chao-lang/small-tools-big-use`，生产分支 `main`。
+```
+Deployment failed: [getOrCreateProject] Project small-tools-big-use exists but has
+Provider 'Github'. This project type does not support direct folder or zip file
+deployment. Only projects with Provider 'Upload' are supported.
+```
+
+也就是说：从关联 GitHub 那一刻起，**只有 push 能更新站点**，`edgeone makers deploy` 对本项目不再可用。
+
+### 配置要点
+
+1. 控制台 → Pages → 项目 → Git 设置：生产分支 `main`。
 2. 构建配置（纯静态站，仓库无 `package.json`）：
    - 构建命令：**留空**
    - 安装命令：**留空**
    - 输出目录：`.`（根目录）
    - 不要选 Vite/Next 等框架模板
-3. 仓库根目录的 `edgeone.json` 会把上述配置固定下来（控制台配置会被它覆盖），避免换环境后忘配：
+3. 仓库根目录的 `edgeone.json` 把上述配置固定下来（会覆盖控制台配置）：
 
    ```json
    {
@@ -110,10 +120,10 @@ EdgeOne Pages 的「直接上传」类型项目**无法切换**成 Git 集成，
    }
    ```
 
-4. 域名迁移（必须做，否则线上永远是旧版）：**先**在旧项目 `small-tools-big-use` 的域名管理里**解绑** `smalltools.dabuside.top`，**再**到新 Git 项目的域名管理里重新添加同一域名 → TXT 归属验证 + CNAME 复用现有解析 → 点「重新检测」→ 等证书签发。一个域名同一时刻只能绑一个项目。
-5. 之后每次 `git push origin main`，EdgeOne 自动拉取并部署，域名自动指向最新部署。
+4. 之后每次 `git push origin main`，EdgeOne 自动拉取并构建；域名自动指向该环境**最新一次成功部署**。
+   - 若构建失败，域名会**继续停在上一版成功的部署**上（表现为「push 了但线上没变」），所以「线上没变」优先去看「构建部署」列表有没有红色记录。
 
-> 已废弃的备选方案：GitHub Actions + `EDGEONE_TOKEN` 调 `edgeone makers deploy`，部署到旧的「直接上传」项目。两套并存会互相覆盖，已删除工作流文件。
+> 已废弃的备选方案：GitHub Actions + `EDGEONE_TOKEN` 调 `edgeone makers deploy` 直传。Provider 变成 Github 后该路彻底不可用，工作流文件已删除。
 
 ---
 
