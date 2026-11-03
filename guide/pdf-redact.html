@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF 涂黑≠删掉：身份证号脱敏怎么才干净</title>
+<meta name="description" content="在 PDF 上画黑框、打马赛克，文字其实还在下面，复制、搜索、拖进编辑器就露出来。讲清三种脱敏做法的差别，给出四步自检清单，以及不把合同上传到在线工具的本地办法。">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+</head>
+<body class="p-pdf">
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="brand-top">企业本地隐私工具箱</span><span class="brand-sub">小工具，大用处</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../products/pdf-mask.html"><span class="swatch" style="background:#ff5000"></span>PDF 涂抹</a>
+      <a href="../products/puroplayer.html"><span class="swatch" style="background:#0e6bd6"></span>PuroPlayer</a>
+      <a href="../products/subtitle.html"><span class="swatch" style="background:#6d3bd6"></span>字幕工作箱</a>
+      <a href="../products/ppt-player.html"><span class="swatch" style="background:#2f6bf6"></span>PPT Player</a>
+      <a href="../products/koutu.html"><span class="swatch" style="background:#0f9d8f"></span>照片去物</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <a class="back-home" href="../index.html">← 返回工具集</a>
+    <div class="eyebrow">使用指南 · PDF / 隐私</div>
+    <h1>PDF 里把身份证号涂黑，怎么才算真的删掉？</h1>
+    <p class="lede">画个黑框、打层马赛克，看上去遮住了——但文字很可能还躺在下面，选中、复制、搜索一下就原形毕露。这篇讲清三种做法的真实差别，以及怎么自己验。</p>
+    <div class="tool-tag"><i></i>本页对应工具：PDF 隐私涂抹工具 · Mac / Windows</div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="guide-body">
+
+      <h2>先说结论：黑框盖住的，多半只是「看起来」被盖住</h2>
+      <p>PDF 和图片不一样。图片是一堆像素，你在上面画个方块，下面的像素就被替换掉了；而 PDF 里的文字是<strong>一层可选中、可搜索的文字层</strong>，你在它上面画矩形，只是往页面里加了一个"图形对象"，把文字压在下面。</p>
+      <p>文字还在。用 PDF 阅读器全选、复制，粘到记事本里，它就出来了；用搜索框搜那串号码，还能定位到。</p>
+      <div class="tip danger"><b>这不是理论风险。</b>公开报道里因为 PDF 黑框下露出原文而出的纰漏，几乎每年都有——包括对外发布的报告、法庭文件、政府公开材料。方法是同一个：只盖了色块，没删文字。</div>
+
+      <h2>三种做法，差别在「文字有没有被真正移除」</h2>
+
+      <h3>做法一：编辑器里画黑框（最快，也最容易翻车）</h3>
+      <p>绝大多数 PDF 编辑器（包括付费的专业软件）都有"添加矩形"功能。填成黑色，位置对齐，看着完美。</p>
+      <p>但只要它只是<strong>叠加在页面上的一层图形</strong>，文字层就原封不动。判断方法很简单：导出后全选复制，看能不能复制到那串被遮住的字。</p>
+
+      <h3>做法二：截图 → 转成图片再发（真删了，代价不小）</h3>
+      <p>把页面截成图片，图片里没有文字层，自然复制不出来。这是"土办法里最保险"的一种。</p>
+      <p>问题是代价明显：</p>
+      <ul>
+        <li>页面变成位图，放大就糊，打印质量下降。</li>
+        <li>整页失去可搜索性，几十页的合同等于放弃检索。</li>
+        <li>一份几十页的文档，一页页截图拼回去，纯手工活。</li>
+      </ul>
+
+      <h3>做法三：专业脱敏（移除文字内容 + 扁平化）</h3>
+      <p>正规的脱敏不是"加一层遮罩"，而是让导出文件里<strong>不再包含那些字符本身</strong>：把被选区域的文字内容移除，再对页面做扁平化处理，避免留下可被还原的图层。</p>
+      <p>本站的 <a href="../products/pdf-mask.html"><strong>PDF 隐私涂抹工具</strong></a> 就是按这个思路做的：框选敏感区域后，可以选"快速模式"（日常够用）或"安全模式"（多层覆盖 + 密集噪声 + 模糊 + 页面扁平化，用于合同、财务、病历这类场景）。</p>
+      <p>关键的一点：它<strong>全程在你自己电脑上处理，不需要联网，文件不会上传</strong>。这一点很重要——下面单独说。</p>
+
+      <h2>四步自检：导出之后，自己验一遍</h2>
+      <p>不管用什么工具，导出的文件在发出去之前都该过一遍这四个动作。全程不需要任何专业软件：</p>
+      <ul class="checklist">
+        <li><strong>全选复制</strong>：在阅读器里 Ctrl/Cmd+A 全选，粘到记事本，搜那串号码/姓名，看还在不在。</li>
+        <li><strong>搜索原文</strong>：用阅读器的查找功能搜被遮住的内容，能搜到就是没删干净。</li>
+        <li><strong>换一个工具打开</strong>：用浏览器、另一个阅读器、手机各开一次，表现一致才算稳。</li>
+        <li><strong>放大看边缘</strong>：截图当图片用，就检查放大后是否清晰；脱敏过的，检查遮罩边缘有没有漏出半个字。</li>
+      </ul>
+      <div class="tip">四步里最关键的是第一条。它不需要装任何东西，十秒钟就能判断一份文件到底能不能发出去。</div>
+
+      <h2>为什么「在线脱敏工具」这一步要格外小心</h2>
+      <p>搜"PDF 打码"，出来的大多是网页工具：上传、框选、下载，三分钟搞定，还免费。方便是真的方便。</p>
+      <p>但这类工具的工作方式决定了：<strong>你的文件必须先上传到它的服务器</strong>，处理完再给你。合同、病历、简历、工资单、投标文件——这些恰恰是最不该离开自己电脑的那一类文档。</p>
+      <p>而且这里有个很别扭的地方：你是为了"不让别人看到"才去脱敏的，结果第一步就把原件交给了第三方。真出了事，你连它有没有留存副本都无从查证。</p>
+      <div class="tip plain">如果文件本身不敏感（比如一份公开模板），在线工具当然没问题。判断标准只有一条：<b>这份文件如果被别人完整看到，会不会有麻烦？</b>会，就别上传。</div>
+
+      <h2>三种做法横向对比</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th>做法</th><th>文字真被删了吗</th><th>文件要上传吗</th><th>可搜索</th><th>适合场景</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>编辑器画黑框</th><td class="accent-cell">没有</td><td>看软件</td><td>能搜到原文</td><td>仅内部草稿，且你确认没人会复制</td></tr>
+            <tr><th>截图转图片</th><td>删了</td><td>不用</td><td>不能</td><td>一两页、只求发出去安全</td></tr>
+            <tr><th>在线脱敏工具</th><td>取决于实现</td><td class="accent-cell">必须</td><td>看情况</td><td>不敏感的公开材料</td></tr>
+            <tr><th>本地专业脱敏</th><td>删了</td><td>不用</td><td>其余部分保留</td><td>合同、病历、财务、简历</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>几个常被问到的点</h2>
+      <div class="faq">
+        <div class="item"><div class="q">"我已经加密/设了权限，还需要脱敏吗？"</div><div class="a">需要。密码保护管的是"能不能打开"，脱敏管的是"打开了能不能看到"。文件一旦被转发，密码往往跟着一起被转述。</div></div>
+        <div class="item"><div class="q">"把文字改成白色字，算脱敏吗？"</div><div class="a">不算，那是典型的假脱敏。白字仍是文字，全选复制一样能拿到。</div></div>
+        <div class="item"><div class="q">"手机截图打码再拼回 PDF 行不行？"</div><div class="a">行，但只适合一两页。页数一多，画质、顺序、页边距都会出问题。</div></div>
+        <div class="item"><div class="q">"脱敏后的文件，我自己怎么确认？"</div><div class="a">用上面那四步自检。工具给的自检结果只是参考，自己复制一遍最实在。</div></div>
+        <div class="item"><div class="q">"处理一份几十页的合同要多久？"</div><div class="a">取决于你要涂多少处，通常是框选的时间，处理本身很快。多页可以一次框选、整体导出。</div></div>
+      </div>
+
+      <div class="guide-cta">
+        <div class="k">对应工具</div>
+        <h3>PDF 隐私涂抹工具 · 本地处理，不联网</h3>
+        <p>框选敏感区域 → 选模式 → 导出。有免费版可以先试；合同、病历、财务这类场景，用安全模式并对导出文件跑一遍自检。</p>
+        <a class="btn btn-primary" href="../products/pdf-mask.html">看看它怎么用 →</a>
+        <div class="note">买断制 · Mac / Windows · 具体价格与发货以店铺页面为准</div>
+      </div>
+
+      <div class="related">
+        <h3>相关阅读</h3>
+        <a href="photo-remove-object.html">照片里多余的人怎么去掉，又不想传到网上？</a>
+        <a href="office-pptx.html">公司电脑没装 Office，怎么打开 pptx？</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>小工具，大用处</h4><p class="lead">一组各管一摊的本地工具。不联网、不上传、不订阅。</p></div>
+      <div>
+        <h4>工具</h4>
+        <a href="../products/pdf-mask.html">PDF 隐私涂抹工具</a>
+        <a href="../products/puroplayer.html">PuroPlayer 播放器</a>
+        <a href="../products/subtitle.html">本地视频字幕工作箱</a>
+        <a href="../products/ppt-player.html">PPT Player 放映器</a>
+        <a href="../products/koutu.html">照片去物工具</a>
+      </div>
+      <div>
+        <h4>使用指南</h4>
+        <a href="office-pptx.html">没装 Office 怎么开 PPT</a>
+        <a href="pdf-redact.html">PDF 脱敏怎么才算删干净</a>
+        <a href="photo-remove-object.html">照片去物不传网上的办法</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 小工具，大用处 · 联系邮箱：<a href="mailto:2819699195@qq.com" style="color:#7e8694;text-decoration:none">2819699195@qq.com</a><br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#7e8694;text-decoration:none">京ICP备2025122553号</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

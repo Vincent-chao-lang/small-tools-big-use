@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /edgeone.json
+
+# 站点：https://smalltools.dabuside.top
+Sitemap: https://smalltools.dabuside.top/sitemap.xml

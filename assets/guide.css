@@ -1,0 +1,94 @@
+/* =========================================================
+   问题页（/guide/）文章排版
+   依赖 site.css 的变量与通用组件，只补"长文可读性"
+   ========================================================= */
+
+/* 文章主体：窄栏，行高放大 */
+.guide-body { max-width: 780px; }
+.guide-body p { font-size: 16.5px; line-height: 1.95; color: var(--ink-2); margin: 16px 0; }
+.guide-body p.lead-p { font-size: 18px; color: var(--ink); }
+.guide-body strong { color: var(--ink); font-weight: 700; }
+.guide-body em { font-style: normal; background: linear-gradient(transparent 62%, var(--accent-weak) 0); padding: 0 2px; }
+.guide-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px;
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; color: var(--ink);
+}
+
+/* 小节标题 */
+.guide-body h2 {
+  font-size: clamp(21px, 2.6vw, 27px); margin: 52px 0 6px; line-height: 1.35;
+  padding-left: 14px; border-left: 4px solid var(--accent);
+}
+.guide-body h2:first-child { margin-top: 0; }
+.guide-body h3 { font-size: 18.5px; margin: 30px 0 6px; color: var(--ink); }
+.guide-body h2 + p, .guide-body h3 + p { margin-top: 10px; }
+
+/* 无序 / 有序列表 */
+.guide-body ul, .guide-body ol { margin: 14px 0 14px 22px; }
+.guide-body li { font-size: 16px; line-height: 1.9; color: var(--ink-2); margin: 8px 0; padding-left: 4px; }
+.guide-body ul li::marker { color: var(--accent); }
+.guide-body ol li::marker { color: var(--accent); font-weight: 800; }
+
+/* 表格外层允许横向滚动 */
+.table-wrap { overflow-x: auto; margin: 22px 0; }
+
+/* 内嵌提示块 */
+.tip {
+  background: var(--accent-weak); border-radius: var(--radius-sm); padding: 16px 20px;
+  font-size: 15.5px; line-height: 1.85; color: var(--ink); margin: 22px 0;
+}
+.tip b { color: var(--ink); }
+.tip.plain { background: var(--bg-soft); border: 1px solid var(--line); }
+.tip.danger { background: #fff5f5; border-left: 4px solid #d9484a; color: #7c2b2b; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+
+/* 自检清单 */
+.checklist { list-style: none; margin: 18px 0; padding: 0; }
+.checklist li { position: relative; padding: 10px 0 10px 34px; border-bottom: 1px dashed var(--line); font-size: 16px; }
+.checklist li::before {
+  content: ""; position: absolute; left: 2px; top: 15px; width: 16px; height: 16px;
+  border: 2px solid var(--accent); border-radius: 4px;
+}
+
+/* 文章页角标：属于哪个工具 */
+.tool-tag {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-top: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.tool-tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); font-style: normal; }
+
+/* 文末工具卡 */
+.guide-cta {
+  margin: 46px 0 8px; padding: 26px 26px 24px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+.guide-cta .k { font-size: 12.5px; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+.guide-cta h3 { font-size: 21px; margin: 8px 0 8px; }
+.guide-cta p { font-size: 15px; margin: 0 0 18px; }
+.guide-cta .btn { font-size: 14.5px; padding: 11px 22px; }
+.guide-cta .note { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
+
+/* 相关阅读 */
+.related { margin-top: 40px; }
+.related h3 { font-size: 15px; color: var(--muted); letter-spacing: .06em; margin-bottom: 10px; }
+.related a { display: block; font-size: 15.5px; color: var(--accent); padding: 7px 0; }
+.related a::after { content: " →"; }
+
+/* 首页指南卡 */
+.guide-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gcard {
+  display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.gcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.gcard .q { font-size: 17px; font-weight: 800; line-height: 1.5; color: var(--ink); }
+.gcard .d { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
+.gcard .go { display: inline-block; margin-top: 14px; font-size: 13.5px; font-weight: 700; color: var(--accent); }
+
+@media (max-width: 900px) {
+  .guide-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .guide-body p { font-size: 16px; line-height: 1.9; }
+  .guide-body h2 { margin-top: 40px; }
+}
