@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF 表单填写器 · 方框和下划线自动认出来，填完另存</title>
+<meta name="description" content="Windows 本地 PDF 表单填写工具：把表上画出来的方框、复选框、下划线自动识别成可点可填的格子，支持手写签名，填完另存为新文件、原件只读。不联网、不上传、不要账户。买断制。">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="p-form">
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="brand-top">企业本地隐私工具箱</span><span class="brand-sub">小工具，大用处</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="pdf-mask.html"><span class="swatch" style="background:#ff5000"></span>PDF 涂抹</a>
+      <a href="pdf-form.html" class="active"><span class="swatch" style="background:#16a34a"></span>PDF 填写</a>
+      <a href="puroplayer.html"><span class="swatch" style="background:#0e6bd6"></span>PuroPlayer</a>
+      <a href="subtitle.html"><span class="swatch" style="background:#6d3bd6"></span>字幕工作箱</a>
+      <a href="ppt-player.html"><span class="swatch" style="background:#2f6bf6"></span>PPT Player</a>
+      <a href="koutu.html"><span class="swatch" style="background:#0f9d8f"></span>照片去物</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <a class="back-home" href="../index.html">← 返回工具集</a>
+    <div class="eyebrow">Windows · 本地离线 · 自动识别</div>
+    <h1>别人发来的表，直接在这台电脑上填</h1>
+    <p class="lede">报名表、入住登记、体检表、政审表——对方永远只说一句"填好发回"。打印出来手写再拍照，或者为了几张表去订一份 PDF 编辑器，都不划算。这个工具会自己找出表上画出来的方框和横线，把它们变成能点、能打字的格子；填完另存为新文件，原件一个字都不动。</p>
+    <div class="badges">
+      <span>🖊️ 自动认格子</span><span>✍️ 手写签名</span><span>🚫 不联网</span><span>🔓 不要账户</span><span>💳 买断制</span>
+    </div>
+    <div class="price-now">一次买断 · 先免费试 7 天，试用期内功能完整</div>
+  </div>
+</section>
+
+<!-- 痛点 -->
+<section class="block">
+  <div class="container">
+    <h2>对方只说一句：填好发回</h2>
+    <div class="accent-rule"></div>
+    <div class="callout">你只是想把它填完交上去，不是想学一套软件。</div>
+    <p style="font-size:16px;color:var(--ink-2);max-width:800px;line-height:1.85;margin-top:22px">为这一件事，常见的四条路都不太顺：</p>
+    <ul class="ul-x" style="margin-top:18px;max-width:820px">
+      <li><b>打印出来手写，再拍照或扫描</b>：得找到一台打印机，写歪了还得重打一份，发回去对方嫌不清楚。</li>
+      <li><b>装一份 PDF 编辑器</b>：为一年填三张表，订一整年的会员；不订阅的版本，又光让你自己拖文本框、调字号、对位置。</li>
+      <li><b>用在线填写网站</b>：身份证号、住址、体检结论，先上传到别人服务器，页脚还写着"用于改进服务"。</li>
+      <li><b>转成 Word 再填</b>：表格跑位、字体变形，填完导出又是另一副样子，发回去像没做过。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 归因 -->
+<section class="block section-soft">
+  <div class="container">
+    <h2>难的不是填写，是让软件知道哪里能填</h2>
+    <div class="accent-rule"></div>
+    <div class="two-col" style="margin-top:24px">
+      <div class="tcol b"><h3>编辑器要求你</h3><ul>
+        <li>自己在页面上拖一个文本框</li>
+        <li>对齐字号、行距、位置</li>
+        <li>每一页重复一遍</li>
+      </ul></div>
+      <div class="tcol a"><h3>这件事其实只要</h3><ul>
+        <li>它自己认出方框和横线</li>
+        <li>你在格子里打字、打钩</li>
+        <li>另存一份发回去</li>
+      </ul></div>
+    </div>
+    <p style="margin-top:18px;font-size:15px;color:var(--ink-2)">表格是别人画的，空格在哪儿是明摆着的——不需要你来告诉软件。这就是它和"PDF 编辑器"的根本区别：编辑器给你一支画笔，它替你把空格找出来。</p>
+  </div>
+</section>
+
+<!-- 三步 + 示意图 -->
+<section class="block">
+  <div class="container">
+    <h2>三步，不打印、不扫描</h2>
+    <div class="accent-rule"></div>
+    <div class="steps" style="margin-top:24px">
+      <div class="step"><div class="n">1</div><p>把要填的 PDF 拖进窗口</p></div>
+      <div class="step"><div class="n">2</div><p>点格子打字，方框点一下打钩</p></div>
+      <div class="step"><div class="n">3</div><p>另存为新文件，发回去</p></div>
+    </div>
+    <p style="margin-top:16px;font-size:14px;color:var(--muted)">认错了可以不用那个格子；填错的地方直接改。原文件始终只读，不会被覆盖。</p>
+
+    <div class="shot demo" style="margin-top:26px">
+      <div class="panes">
+        <div class="pane">
+          <div class="lbl">纸上长这样</div>
+          <div class="row"><span>姓名</span><span class="blank"></span></div>
+          <div class="row"><span>性别</span><span class="box"></span><span>男</span><span class="box"></span><span>女</span></div>
+          <div class="row"><span>身份证号</span><span class="blank"></span></div>
+          <div class="row"><span>本人签名</span><span class="blank"></span></div>
+        </div>
+        <div class="pane">
+          <div class="lbl">程序看到的样子</div>
+          <div class="row"><span>姓名</span><span class="hit"></span></div>
+          <div class="row"><span>性别</span><span class="hit-box"></span><span>男</span><span class="hit-box"></span><span>女</span></div>
+          <div class="row"><span>身份证号</span><span class="hit"></span></div>
+          <div class="row"><span>本人签名</span><span class="hit"></span></div>
+        </div>
+      </div>
+      <div class="cap">示意图 · 虚线框是程序自动认出的可填位置，不是界面截图</div>
+    </div>
+  </div>
+</section>
+
+<!-- 能认什么 -->
+<section class="block section-soft">
+  <div class="container">
+    <h2>它能认出哪些格子</h2>
+    <div class="accent-rule"></div>
+    <p style="font-size:16px;color:var(--ink-2);max-width:820px;line-height:1.85">判断依据是<b>这个格子是怎么画出来的</b>，不是它由哪个软件导出。所以 Word、WPS、Excel、LaTeX 导出的表格，只要用的是这几种画法，都认得。</p>
+    <table class="spec" style="margin-top:24px;max-width:860px">
+      <tr><th>画出来的方框 □ ○</th><td>认。点一下就变成 ✓，再点取消</td></tr>
+      <tr><th>下划线 ______</th><td>认。点上去直接打字，不用自己拖文本框</td></tr>
+      <tr><th>一条很长的填空线</th><td>认。按页宽自适应，不会被截断成半格</td></tr>
+      <tr><th>用线条画的表格</th><td>认表格，但表格线本身不会变成可填区域（否则每根线都成了格子）</td></tr>
+      <tr><th>扫描件、手机拍的 PDF</th><td><b style="color:#8a2f2f">认不出</b>。里面是一张图片，没有可识别的字和线</td></tr>
+      <tr><th>方框是图片的一部分</th><td><b style="color:#8a2f2f">认不出</b>。同上，图片里的东西程序看不见</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:14px">软件里有个「?」按钮，点开会把这份清单原样列出来——不确定的先看那里，比翻说明书快。</p>
+  </div>
+</section>
+
+<!-- 能力 -->
+<section class="block">
+  <div class="container">
+    <h2>就做这一件事，做干净</h2>
+    <div class="accent-rule"></div>
+    <div class="feat-grid" style="margin-top:24px">
+      <div class="feat"><div class="ic">🔍</div><b>自动认格子</b><span>方框、复选框、下划线一次认出，不用手动摆位置</span></div>
+      <div class="feat"><div class="ic">✍️</div><b>手写签名</b><span>签一次存进签名库，之后每份表点一下盖上；也能从签名照片里把笔画抠出来</span></div>
+      <div class="feat"><div class="ic">🔒</div><b>原文件只读</b><span>结果另存为新 PDF，原件一个字都不动</span></div>
+      <div class="feat"><div class="ic">🧾</div><b>版式不变</b><span>只往里填，不重排。对方收到的还是原来那份表</span></div>
+      <div class="feat"><div class="ic">📴</div><b>断网可用</b><span>识别和渲染都在本机，不联网校验、不下载模型</span></div>
+      <div class="feat"><div class="ic">❓</div><b>边界写在界面上</b><span>能认什么、认不出什么，点开就能看到，不用试</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 诚实边界 -->
+<section class="block section-soft">
+  <div class="container">
+    <h2>它做不到什么——先说清楚，省得你退货</h2>
+    <div class="accent-rule"></div>
+    <ul class="ul-x" style="max-width:860px;margin-top:20px">
+      <li><b>它不是 PDF 编辑器</b>。改不了原文、加不了页、删不掉内容、换不了图——它只负责往里填。</li>
+      <li><b>扫描件认不出来</b>。手机拍的、传真扫的、复印后再转的 PDF，里面是一张图，程序看不到方框和横线。这类只能先 OCR 或重新要一份电子版。</li>
+      <li><b>认不出的样式不会瞎猜</b>。只在确实看到一个方框、一条横线的地方放格子；没有标签的零散小框，默认收起来不显示——猜出来的格子你反而不敢用。</li>
+      <li><b>一次一份，没有批量</b>。要批量填同一张表，那是数据库和邮件合并该干的事，不是 PDF 该干的事。</li>
+      <li><b>只有 Windows 版</b>。macOS、Linux、手机、平板都用不了。</li>
+      <li><b>不改变原件，也不回收你填的东西</b>。所有内容只存在于你另存出来的那个文件里。</li>
+    </ul>
+    <div class="warn-note" style="margin-top:18px">如果你要的是"把一份旧 PDF 改成新内容"——改金额、换日期、调排版——这个工具做不到，也不打算做。它擅长的是：一份别人发来的空白表，你把它填完、签上字、发回去。</div>
+  </div>
+</section>
+
+<!-- 隐私 -->
+<section class="block">
+  <div class="container">
+    <h2>表格不出这台电脑</h2>
+    <div class="accent-rule"></div>
+    <ul class="ul-clean" style="max-width:820px;margin-top:20px">
+      <li>运行期<strong>零网络请求</strong>，拔掉网线照样能填。</li>
+      <li>识别与渲染都用本机自带组件，不联网下载、不联网校验。</li>
+      <li>不要账户、不要手机号、不收集你填了什么。</li>
+      <li>原文件只读：结果另存为新文件，你的原件不会被改动。</li>
+    </ul>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:14px">体检表、政审表、入职登记表这类东西，本来就只该待在自己电脑里。</p>
+  </div>
+</section>
+
+<!-- 系统要求 -->
+<section class="block section-soft">
+  <div class="container">
+    <h2>能装就能用</h2>
+    <div class="accent-rule"></div>
+    <table class="spec" style="margin-top:24px;max-width:800px">
+      <tr><th>系统</th><td>Windows 10 / 11（64 位）</td></tr>
+      <tr><th>依赖</th><td>无。PDF 引擎随安装包一起落地，不用另装 Acrobat 或 Office</td></tr>
+      <tr><th>磁盘</th><td>安装包约 6 MB，装完占用很小</td></tr>
+      <tr><th>运行环境</th><td>普通办公电脑即可，不需要独立显卡</td></tr>
+      <tr><th>不支持</th><td>macOS、Linux、手机；扫描件与纯图片 PDF</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 交付 -->
+<section class="block" id="buy">
+  <div class="container">
+    <h2>拍下之后怎么拿到</h2>
+    <div class="accent-rule"></div>
+    <div class="steps" style="margin-top:24px">
+      <div class="step"><div class="n">1</div><p>付款后系统自动发货，在「已买到的宝贝 → 查看卡券 / 详情」里</p></div>
+      <div class="step"><div class="n">2</div><p>内含：下载地址 + 使用说明；装了就能填，不用激活码</p></div>
+      <div class="step"><div class="n">3</div><p>未收到或链接失效，联系客服 2 小时内人工补发</p></div>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:14px">具体发货方式与价格以实际店铺页面为准。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block section-soft">
+  <div class="container">
+    <div class="page-cta">
+      <h2>下一份表，别再打印了</h2>
+      <p>表是别人的，填表这件事可以是你自己的。</p>
+      <a class="btn btn-primary" href="../index.html#products">回到工具集 · 看看其他几款</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>小工具，大用处</h4><p class="lead">一组各管一摊的本地工具。不联网、不上传、不订阅。</p></div>
+      <div>
+        <h4>工具</h4>
+        <a href="pdf-mask.html">PDF 隐私涂抹工具</a>
+        <a href="pdf-form.html">PDF 表单填写器</a>
+        <a href="puroplayer.html">PuroPlayer 播放器</a>
+        <a href="subtitle.html">本地视频字幕工作箱</a>
+        <a href="ppt-player.html">PPT Player 放映器</a>
+        <a href="koutu.html">照片去物工具</a>
+      </div>
+      <div><h4>关于</h4><a href="../index.html#why">为什么本地优先</a><a href="../index.html#products">全部工具</a></div>
+    </div>
+    <div class="copy">© 2026 小工具，大用处 · PDF 表单填写器 v0.4.1 · Windows 专属 · 联系邮箱：<a href="mailto:2819699195@qq.com" style="color:#7e8694;text-decoration:none">2819699195@qq.com</a><br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#7e8694;text-decoration:none">京ICP备2025122553号</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

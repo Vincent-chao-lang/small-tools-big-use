@@ -74,20 +74,8 @@
 .related a { display: block; font-size: 15.5px; color: var(--accent); padding: 7px 0; }
 .related a::after { content: " →"; }
 
-/* 首页指南卡 */
-.guide-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.gcard {
-  display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 24px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s, border-color .15s;
-}
-.gcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
-.gcard .q { font-size: 17px; font-weight: 800; line-height: 1.5; color: var(--ink); }
-.gcard .d { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
-.gcard .go { display: inline-block; margin-top: 14px; font-size: 13.5px; font-weight: 700; color: var(--accent); }
+/* 首页指南卡：已移到 site.css（首页只引 site.css，写在这里首页拿不到） */
 
-@media (max-width: 900px) {
-  .guide-cards { grid-template-columns: 1fr; }
-}
 @media (max-width: 640px) {
   .guide-body p { font-size: 16px; line-height: 1.9; }
   .guide-body h2 { margin-top: 40px; }

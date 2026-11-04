@@ -39,6 +39,7 @@ body.p-puro      { --accent: #0e6bd6; --accent-weak: #e9f3ff; }
 body.p-subtitle  { --accent: #6d3bd6; --accent-weak: #f3edff; }
 body.p-ppt       { --accent: #2f6bf6; --accent-weak: #eaf1ff; }
 body.p-koutu     { --accent: #0f9d8f; --accent-weak: #e6f7f4; }
+body.p-form      { --accent: #16a34a; --accent-weak: #ecfdf3; }
 
 /* ---------- Base ---------- */
 body {
@@ -256,6 +257,36 @@ section { padding: 72px 0; }
 .placeholder { border: 2px dashed var(--line); border-radius: var(--radius); padding: 40px 20px; text-align: center;
   color: var(--muted); font-size: 14px; background: var(--bg-soft); }
 .placeholder b { color: var(--ink-2); }
+
+/* 识别示意（产品页图解，明确不是界面截图） */
+.demo .panes { display: grid; grid-template-columns: 1fr 1fr; }
+.demo .pane { padding: 24px 20px; }
+.demo .pane + .pane { border-left: 1px solid var(--line); }
+.demo .pane .lbl { font-size: 12px; letter-spacing: .06em; color: var(--muted); margin-bottom: 18px; }
+.demo .row { display: flex; align-items: baseline; gap: 7px; font-size: 13.5px; color: var(--ink-2); margin-bottom: 15px; }
+.demo .row:last-child { margin-bottom: 0; }
+.demo .blank { flex: 1; height: 14px; border-bottom: 1px solid #9aa1ad; }
+.demo .box { display: inline-block; width: 12px; height: 12px; border: 1px solid #6b7280; margin-right: 5px; vertical-align: -1px; }
+.demo .hit { flex: 1; height: 19px; border: 1.5px dashed var(--accent); border-radius: 3px;
+  background: var(--accent-weak); align-self: center; }
+.demo .hit-box { display: inline-block; width: 13px; height: 13px; border: 1.5px dashed var(--accent);
+  border-radius: 3px; background: var(--accent-weak); margin-right: 5px; vertical-align: -1px; }
+@media (max-width: 640px) {
+  .demo .panes { grid-template-columns: 1fr; }
+  .demo .pane + .pane { border-left: none; border-top: 1px solid var(--line); }
+}
+
+/* 首页指南卡（原先只写在 guide.css 里，首页没引那个文件，所以一直是裸链接） */
+.guide-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gcard {
+  display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.gcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.gcard .q { font-size: 17px; font-weight: 800; line-height: 1.5; color: var(--ink); }
+.gcard .d { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
+.gcard .go { display: inline-block; margin-top: 14px; font-size: 13.5px; font-weight: 700; color: var(--accent); }
+@media (max-width: 900px) { .guide-cards { grid-template-columns: 1fr; } }
 
 /* 产品页底部 CTA */
 .page-cta { background: var(--shell); color: #fff; border-radius: var(--radius); padding: 44px 36px; text-align: center; margin: 8px 0 0; }
