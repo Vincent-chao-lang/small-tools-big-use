@@ -80,7 +80,7 @@ section { padding: 72px 0; }
 
 /* ---------- 页脚 ---------- */
 .site-footer { background: var(--shell); color: #aeb4c0; padding: 46px 0 38px; margin-top: 0; }
-.site-footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; }
+.site-footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 30px; }
 .site-footer h4 { color: #fff; font-size: 14px; margin-bottom: 12px; letter-spacing: .04em; }
 .site-footer a { color: #aeb4c0; font-size: 13.5px; display: block; padding: 4px 0; }
 .site-footer a:hover { color: #fff; }
@@ -101,6 +101,16 @@ section { padding: 72px 0; }
 .btn-ghost:hover { background: var(--accent-weak); }
 .btn-light { background: #fff; color: var(--ink); }
 .btn-light:hover { transform: translateY(-1px); }
+/* 微信客服：中性描边次级按钮
+   不用微信绿——koutu 的 accent 是青绿、pdf-form 是绿，绿上加绿会跟主 CTA 撞色 */
+.btn-wechat { background: transparent; color: #e8ebf1; border: 1.5px solid rgba(255,255,255,.28); }
+.btn-wechat:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.6); }
+/* 按钮并排组（页面底部 CTA 用） */
+.btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+/* 正文内联链接（如「联系客服」） */
+.inline-link { color: var(--accent); font-weight: 700;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+.inline-link:hover { border-bottom-color: var(--accent); }
 
 /* =========================================================
    首页区块
