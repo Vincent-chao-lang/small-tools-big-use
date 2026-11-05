@@ -344,3 +344,30 @@ section { padding: 72px 0; }
   .compare, .spec { font-size: 13.5px; }
   .compare th, .compare td, .spec th, .spec td { padding: 11px 12px; }
 }
+
+/* 右侧悬浮微信客服 */
+.wxkf-fab {
+  position: fixed; right: 20px; bottom: 80px; z-index: 9999;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 12px 16px; border-radius: 24px;
+  background: #07c160; color: #fff;
+  font-size: 14px; font-weight: 600; line-height: 1; letter-spacing: .02em;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(7,193,96,.32), 0 2px 6px rgba(0,0,0,.16);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.wxkf-fab svg { display: block; width: 16px; height: 16px; flex: none; }
+.wxkf-fab:hover { background: #06ad56; transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(7,193,96,.40), 0 3px 8px rgba(0,0,0,.18); }
+.wxkf-fab:active { transform: translateY(0); }
+.wxkf-fab:focus-visible { outline: 2px solid #07c160; outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .wxkf-fab { right: 14px; bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    padding: 11px 14px; font-size: 13px; gap: 6px; }
+  .wxkf-fab svg { width: 15px; height: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wxkf-fab, .wxkf-fab:hover { transition: none; transform: none; }
+}
