@@ -89,10 +89,11 @@ section { padding: 72px 0; }
   font-size: 12.5px; color: #7e8694; line-height: 1.9; }
 /* 版权行里的邮箱/备案号要跟着文字走，不能继承 footer a 的块级（否则「联系邮箱：」后断行） */
 .site-footer .copy a { display: inline; padding: 0; }
-/* 分享封面缩略图：宽高属性写 300×300 供微信抓取用，视觉上收小成品牌印记 */
-.site-footer .footer-mark { display: block; width: 88px; height: 88px; border-radius: 12px;
-  margin-bottom: 14px; border: 1px solid rgba(255,255,255,.10); }
-@media (max-width: 640px) { .site-footer .footer-mark { width: 72px; height: 72px; } }
+/* 分享封面图：必须按真实尺寸渲染 ≥300×300 —— 微信在 WebView 里渲染后按「显示尺寸」筛图，
+   若用 CSS 收小，等于自己把候选图排除掉（实测 88px 时朋友圈卡片一直无图）。 */
+.site-footer .footer-mark { display: block; width: 300px; height: 300px; max-width: 100%;
+  border-radius: 14px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,.10); }
+@media (max-width: 640px) { .site-footer .footer-mark { width: 300px; height: 300px; } }
 
 /* ---------- 按钮 ---------- */
 .btn {
