@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>播个本地视频，为什么非要先登录</title>
+<meta name="description" content="视频文件明明就在自己硬盘上，播放器却要登录、要塞推荐、要联网拉封面。讲清播放器联网都在传什么、哪些视频不该出现在任何服务器上，以及三步自证「它真的没联网」的方法。">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+</head>
+<body class="p-puro">
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="brand-top">企业本地隐私工具箱</span><span class="brand-sub">小工具，大用处</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../products/pdf-mask.html"><span class="swatch" style="background:#ff5000"></span>PDF 涂抹</a>
+      <a href="../products/pdf-form.html"><span class="swatch" style="background:#16a34a"></span>PDF 填写</a>
+      <a href="../products/puroplayer.html"><span class="swatch" style="background:#0e6bd6"></span>PuroPlayer</a>
+      <a href="../products/subtitle.html"><span class="swatch" style="background:#6d3bd6"></span>字幕工作箱</a>
+      <a href="../products/ppt-player.html"><span class="swatch" style="background:#2f6bf6"></span>PPT Player</a>
+      <a href="../products/koutu.html"><span class="swatch" style="background:#0f9d8f"></span>照片去物</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <a class="back-home" href="../index.html">← 返回工具集</a>
+    <div class="eyebrow">使用指南 · 播放器 / 隐私</div>
+    <h1>播个本地视频，为什么要先登录？</h1>
+    <p class="lede">文件就在硬盘里，双击能放，本来不需要任何人和任何服务器。可现在的播放器一打开：先登录，再推荐，封面从网上拉。这篇文章拆开看——联网到底在传什么，哪些视频根本不该出现在任何服务器上，以及怎么亲手证明"它真的没联网"。</p>
+    <div class="tool-tag"><i></i>本页对应工具：PuroPlayer · Mac / Windows</div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="guide-body">
+
+      <h2>先说结论：播放器的联网，多半不是为了播放</h2>
+      <p>解码一个本地视频，不需要网络。这一点从二十年前的播放器就成立了。所以当一款播放器要求联网时，它联网的部分基本是这几件事：</p>
+      <ul>
+        <li><strong>账号体系。</strong>登录才能用，登录就有账号，有账号就能把"这台设备"和"这个人"对上。</li>
+        <li><strong>推荐与首页。</strong>首页要内容，内容从服务器来；要推荐得准，就得知道你看过什么。</li>
+        <li><strong>在线元数据。</strong>封面、简介、字幕自动从网上拉——文件名会被当作查询条件发出去。</li>
+        <li><strong>播放统计与广告 SDK。</strong>开始、暂停、播放完成、时长，都是可上报的事件。</li>
+        <li><strong>自动更新与插件下载。</strong>解码插件、流媒体插件按需拉取，这是一条常开的出站通道。</li>
+      </ul>
+      <p>单独看，每一条都有合理理由。合起来看，结论是：<strong>文件在本地，但"你在看什么、看了多久、什么时候看"是数据，而且这些数据会出门。</strong></p>
+      <div class="tip plain"><b>注意一个容易忽略的细节：</b>很多播放器会把本地文件名当成"识别指纹"发出去查封面。文件名里往往带着客户名、项目名、日期、人名——你以为只是查个海报，实际上把整份目录结构的一部分交了出去。</div>
+
+      <h2>哪些视频，本来就不该出现在任何服务器上</h2>
+      <p>公开的电影、下载的课程，其实无所谓。真正需要在意的是下面这几类，它们的共同点是：<strong>文件内容本身带保密义务。</strong></p>
+      <ul>
+        <li><strong>内部培训与经营会议录像。</strong>里面有战略、有数字、有还没公开的人事安排。</li>
+        <li><strong>客户交付的原始素材。</strong>签了保密协议才拿到的东西，一旦外流是违约，不是"不小心"。</li>
+        <li><strong>审计、法务、监察录像。</strong>这类材料的价值恰恰在于"没被别人看过"。</li>
+        <li><strong>医疗影像与问诊录屏。</strong>属于敏感个人信息，处理边界比一般文件严得多。</li>
+        <li><strong>家庭影像。</strong>不需要理由，就是不想给。</li>
+      </ul>
+      <p>这几类的处理原则一致：<strong>能不上传就不上传，能不联网就不联网。</strong>不是"相信厂商不会看"，而是让"能看到"这件事在技术上不成立。</p>
+
+      <h2>四条路，各自的取舍</h2>
+
+      <h3>系统自带播放器（QuickTime / Windows 媒体播放器）</h3>
+      <p>最省事，本来就在机器里，一般不要求登录。缺点是格式支持有限：HEVC、AV1、某些封装格式、外挂字幕、倍速与逐帧，经常卡在其中某一项上。</p>
+
+      <h3>VLC 这类全能播放器</h3>
+      <p>格式支持几乎无敌，开源、免费。但它的定位是"什么都能放"，因此插件生态复杂、设置项极多；默认会在启动时检查更新、拉取封面与元数据。它不做恶，但也不是"零联网"的设计。</p>
+
+      <h3>网盘/在线播放</h3>
+      <p>上传再在线看，本质上就是把这些视频交出去，还多了一层"分享链接权限设错"的风险。除了跨设备临时看片，想不出更适合的场景。</p>
+
+      <h3>纯本地零联网播放器</h3>
+      <p>设计目标只有一个：<strong>只做播放，不做出门的事。</strong>具体表现为：代码层面没有联网逻辑，内嵌解码内核里的网络、流媒体、投屏类插件直接剔除，不要求账号，只读取你手选的那一个文件。</p>
+      <p>本站的 <a href="../products/puroplayer.html"><strong>PuroPlayer</strong></a> 就是按这个标准做的。它值得说的一句是：<strong>它不是"承诺不传"，而是"没有传的能力"</strong>——这两句话在合规上完全不是一回事，前者是态度，后者是结构。</p>
+
+      <h2>三步自证：这个播放器到底有没有联网</h2>
+      <p>不要相信任何一方的说法，包括我上面这段。自己验三件事，十分钟内能做完：</p>
+      <ul class="checklist">
+        <li><strong>断网播放。</strong>关掉 Wi-Fi、拔掉网线，再打开视频。能正常播放、能拖进度，说明播放链路不依赖网络。播不了，说明它至少要连一次。</li>
+        <li><strong>看有没有"必须登录"。</strong>开机第一次打开就要账号的，后面所有行为都和这个账号关联。不需要登录的，才有可能真的不记录。</li>
+        <li><strong>看有没有出站连接。</strong>macOS 用"活动监视器 → 网络"，Windows 用"资源监视器 → 网络"，播放时观察这个进程有没有持续的对外的连接与流量。零流量比任何宣传语都硬。</li>
+      </ul>
+      <div class="tip">第三步最狠：即便一个软件声称"只上传匿名统计"，只要有出站流量，它上传了什么你就无法确认。而一条连接都没有的进程，是没有办法撒谎的。</div>
+
+      <h2>四条路横向对比</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th>方案</th><th>要账号吗</th><th>会联网吗</th><th>格式支持</th><th>适合场景</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>系统自带播放器</th><td>不要</td><td>基本不</td><td class="accent-cell">有限</td><td>常见格式、随手看</td></tr>
+            <tr><th>VLC 类全能播放器</th><td>不要</td><td>会（更新/元数据）</td><td>几乎全支持</td><td>格式杂、自己会用设置</td></tr>
+            <tr><th>网盘在线播放</th><td class="accent-cell">要</td><td class="accent-cell">必然</td><td>看转码</td><td>跨设备临时看，非敏感内容</td></tr>
+            <tr><th>纯本地零联网</th><td>不要</td><td>不联网</td><td>覆盖常用格式</td><td>内部培训、客户素材、监察录像</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>几个常被问到的点</h2>
+      <div class="faq">
+        <div class="item"><div class="q">“不联网，会不会很多格式放不了？”</div><div class="a">会有一部分受限。零联网意味着不能临时下载解码插件，格式支持只能靠内置的那一套。买之前拿你手上最难搞的那个文件试一下，比看参数表靠谱。</div></div>
+        <div class="item"><div class="q">“我要看 4K / HDR，本地播放器扛得住吗？”</div><div class="a">取决于解码内核和机器性能。集显机器播高码率 4K 会吃力，这和联不联网无关。先用真实素材试播，别只看规格。</div></div>
+        <div class="item"><div class="q">“断网测试的时候，它其实可以先偷偷联网再播吧？”</div><div class="a">所以要做第三步：看它的出站流量。断网测试只能证明"不联网也能播"，看流量才能证明"平时也没在传"。</div></div>
+        <div class="item"><div class="q">“播放器为什么要联网？给个正当理由。”</div><div class="a">有正当的：在线字幕、封面、投屏、更新。但这些都不是"播放本地文件"的必需项。判断标准是——把这些功能全关掉，它还能不能正常播？能，说明联网是可选项，那就有权要求它别联。</div></div>
+        <div class="item"><div class="q">“公司电脑装不了新软件怎么办？”</div><div class="a">先问 IT 能不能走白名单。装不了的话，至少把现有播放器的自动更新、在线元数据、封面下载关掉，能减一层是一层。</div></div>
+      </div>
+
+      <div class="guide-cta">
+        <div class="k">对应工具</div>
+        <h3>PuroPlayer · 零联网、零账户的本地播放器</h3>
+        <p>代码层没有联网逻辑，解码内核里的网络与投屏插件已剔除。只读你手选的那一个文件，播完什么都不记。</p>
+        <a class="btn btn-primary" href="../products/puroplayer.html">看看它怎么用 →</a>
+        <div class="note">买断制 · Mac / Windows · 具体价格与发货以店铺页面为准</div>
+      </div>
+
+      <div class="related">
+        <h3>相关阅读</h3>
+        <a href="subtitle.html">给视频打字幕，素材一定要先上传吗？</a>
+        <a href="pdf-redact.html">PDF 里把身份证号涂黑，算删干净了吗？</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>小工具，大用处</h4><p class="lead">一组各管一摊的本地工具。不联网、不上传、不订阅。</p></div>
+      <div>
+        <h4>工具</h4>
+        <a href="../products/pdf-mask.html">PDF 隐私涂抹工具</a>
+        <a href="../products/pdf-form.html">PDF 表单填写器</a>
+        <a href="../products/puroplayer.html">PuroPlayer 播放器</a>
+        <a href="../products/subtitle.html">本地视频字幕工作箱</a>
+        <a href="../products/ppt-player.html">PPT Player 放映器</a>
+        <a href="../products/koutu.html">照片去物工具</a>
+      </div>
+      <div>
+        <h4>使用指南</h4>
+        <a href="office-pptx.html">没装 Office 怎么开 PPT</a>
+        <a href="pdf-redact.html">PDF 脱敏怎么才算删干净</a>
+        <a href="pdf-form.html">别人发来的表怎么填</a>
+        <a href="photo-remove-object.html">照片去物不传网上的办法</a>
+        <a href="puroplayer.html">播放器为什么要联网</a>
+        <a href="subtitle.html">给视频打字幕要不要上传</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <a href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener">微信客服</a>
+        <a href="mailto:kf@dabuside.top">kf@dabuside.top</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 小工具，大用处 · 联系邮箱：<a href="mailto:kf@dabuside.top" style="color:#7e8694;text-decoration:none">kf@dabuside.top</a><br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#7e8694;text-decoration:none">京ICP备2025122553号</a></div>
+  </div>
+</footer>
+
+<a class="wxkf-fab" href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener" aria-label="在线咨询：微信扫码联系客服">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 3C6.98 3 2.9 6.4 2.9 10.6c0 2.36 1.34 4.47 3.45 5.87-.18.95-.66 2.06-1.43 2.94-.2.23-.03.6.28.58 1.55-.14 2.94-.78 3.87-1.32.94.26 1.94.4 2.97.4 5.06 0 9.14-3.4 9.14-7.6S17.1 3 12.04 3Zm-3.1 4.63a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Zm6.2 0a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Z"/></svg>
+  <span>在线咨询</span>
+</a>
+
+</body>
+</html>

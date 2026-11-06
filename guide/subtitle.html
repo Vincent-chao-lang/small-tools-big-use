@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>给视频打字幕，素材一定要传到网上吗</title>
+<meta name="description" content="打轴的本质只是「时间码 + 一行字」，不需要任何服务器。讲清在线字幕站的三个硬伤、手动打轴与自动识别的边界，以及字幕做得不业余的五个具体参数。">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+</head>
+<body class="p-subtitle">
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="brand-top">企业本地隐私工具箱</span><span class="brand-sub">小工具，大用处</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../products/pdf-mask.html"><span class="swatch" style="background:#ff5000"></span>PDF 涂抹</a>
+      <a href="../products/pdf-form.html"><span class="swatch" style="background:#16a34a"></span>PDF 填写</a>
+      <a href="../products/puroplayer.html"><span class="swatch" style="background:#0e6bd6"></span>PuroPlayer</a>
+      <a href="../products/subtitle.html"><span class="swatch" style="background:#6d3bd6"></span>字幕工作箱</a>
+      <a href="../products/ppt-player.html"><span class="swatch" style="background:#2f6bf6"></span>PPT Player</a>
+      <a href="../products/koutu.html"><span class="swatch" style="background:#0f9d8f"></span>照片去物</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <a class="back-home" href="../index.html">← 返回工具集</a>
+    <div class="eyebrow">使用指南 · 字幕 / 打轴</div>
+    <h1>加个字幕而已，为什么要把视频传上去？</h1>
+    <p class="lede">搜"在线字幕"，前几条都是上传、等转码、下载。可打轴这件事的本质，只是"一个时间码配一行字"——它不需要任何服务器参与。这篇讲清三条路各自的代价，以及字幕做得不像业余的五个具体参数。</p>
+    <div class="tool-tag"><i></i>本页对应工具：本地视频字幕工作箱 · macOS</div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="guide-body">
+
+      <h2>先说结论：打轴是纯本地工作，没有一步必须联网</h2>
+      <p>一个字幕文件长这样：</p>
+      <p style="font-family:ui-monospace,Menlo,monospace;background:#f5f6f8;padding:14px 16px;border-radius:8px;font-size:14px;line-height:1.8">1<br>00:00:03,200 --&gt; 00:00:06,400<br>开场先说清楚今天要讲什么</p>
+      <p>序号、起止时间、一行文本。这就是全部。字幕文件里没有任何"秘密技术"，它是一个纯文本文件，几十年前就是这个格式，任何编辑器都能打开。</p>
+      <p>所以问题不在于"能不能本地做"，而在于<strong>为什么大部分人都默认去了在线网站</strong>。原因是这类网站把两件事捆在一起卖：一个是"自动语音识别"，另一个是"不用装软件"。前者确实需要算力，后者只是省事。</p>
+
+      <h2>在线字幕站的三个硬伤</h2>
+      <h3>一、上传是前置条件，不是选项</h3>
+      <p>它的工作流程决定了：文件必须先到你不知道在哪的服务器上，转码、识别、再回传。你为了"加几行字"，把整段视频交了出去。</p>
+      <p>而需要打字幕的视频，往往恰恰是最不该外传的那批：内部培训、客户交付素材、访谈原始素材、会议录像、孩子的演出。这类内容一旦离开你的设备，后面发生什么你无法查证。</p>
+
+      <h3>二、等待与限制是常态</h3>
+      <p>排队、转码、文件大小上限、时长上限、免费额度用完要付费——这些不是技术难题，是产品设计。你在为"不用装软件"这件事持续付费，付的是时间和隐私。</p>
+
+      <h3>三、断网就用不了</h3>
+      <p>赶时间的时候最要命。网络抖一下，前面排的队白排。</p>
+
+      <h2>另外两条路，也不是没代价</h2>
+      <p><strong>剪辑软件自带字幕功能</strong>（剪映、Premiere 等）：功能强，还能一键识别。代价是软件本身很大、要学、要授权；如果只是为了给一段视频加字幕，装一个几 GB 的剪辑软件属于用卡车送快递。</p>
+      <p><strong>纯手工敲 SRT 文件</strong>：用记事本写时间码，理论上完全可行。实际操作过的人都知道，改一个时间点要数毫秒，改十句就崩溃。</p>
+      <p>本站的 <a href="../products/subtitle.html"><strong>本地视频字幕工作箱</strong></a> 走的是第四条：加载本地视频，拖到时间点直接输文字，画面上实时预览，导出 SRT / ASS。视频不出电脑，一个字节都不上传。</p>
+      <div class="tip plain"><b>一个诚实的边界：</b>这个工具是<strong>手动打轴</strong>，不是自动语音识别。它解决的是"我已经知道该写什么，只想快点对上时间"；如果你要的是"一小时的录音自动变成字幕"，那是另一类工具，而且云端识别的准确率目前也仍需人工校对一遍。</div>
+
+      <h2>字幕做得"不像业余"的五个参数</h2>
+      <p>很多人第一次打字幕，字是对的，就是看着别扭。差别基本都在这五条上：</p>
+      <ul class="checklist">
+        <li><strong>单行别超过 16–18 个字。</strong>超了就断行，最多两行。一行塞满整屏，观众眼睛会来回扫。</li>
+        <li><strong>每条停留 1.5–7 秒。</strong>短于 1.5 秒来不及读；长于 7 秒，观众会不自觉地读第二遍，反而分神。</li>
+        <li><strong>比声音早 2–4 帧出现。</strong>字幕跟着声音同时出现，读起来总是"慢半拍"。提前一点点最自然。</li>
+        <li><strong>按语义断句，不要按字数硬切。</strong>"我们明天上午十点" / "在会议室开会" 比 "我们明天上午十点在会" / "议室开会" 好读一百倍。</li>
+        <li><strong>句末不加标点。</strong>问号、感叹号可以留；句号、逗号在字幕里是噪音，用换行和断句代替。</li>
+      </ul>
+      <div class="tip">这五条不需要任何软件支持，手写也适用。真正拉开差距的是第二和第四条——它们决定了观众是"看字幕"，还是"被字幕拖着走"。</div>
+
+      <h2>SRT 还是 ASS？</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th>格式</th><th>能带样式吗</th><th>通用性</th><th>什么时候用</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>SRT</th><td class="accent-cell">不能</td><td>几乎所有播放器与平台都认</td><td>交片、上传视频平台、给别人用</td></tr>
+            <tr><th>ASS</th><td>能（字体、位置、颜色、特效）</td><td>播放器支持不一</td><td>自己精修、需要固定样式与双语排版</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>实用建议：<strong>先做 SRT，需要精修时再转 ASS。</strong>交出去的文件优先 SRT，因为对方用什么播放器你控制不了。</p>
+
+      <h2>几个常被问到的点</h2>
+      <div class="faq">
+        <div class="item"><div class="q">“能不能自动识别语音？”</div><div class="a">这个工具不做识别，是手动打轴。要自动识别，得用带 ASR 的方案——注意两点：云端识别意味着音频要上传；识别结果仍然需要人工校对时间点和错字，省的不是全部工作量。</div></div>
+        <div class="item"><div class="q">“导出的 SRT 能直接给剪映 / PR 用吗？”</div><div class="a">能。SRT 是通用格式，主流剪辑软件和视频平台都支持导入。导入后如果时间有偏移，通常是帧率不一致（23.976 / 25 / 29.97），在软件里调一下偏移即可。</div></div>
+        <div class="item"><div class="q">“双语字幕怎么做？”</div><div class="a">两种做法：中文一行、英文一行放在同一条字幕里（简单，但会占两行高度）；或者做成两条独立的字幕轨（灵活，播放器要支持）。第一种兼容性最好。</div></div>
+        <div class="item"><div class="q">“为什么只有 macOS 版？”</div><div class="a">当前只发了 macOS 版本，Windows 端还在路上。买之前确认自己的系统，别买了装不上。</div></div>
+        <div class="item"><div class="q">“打轴一半断电了，会丢吗？”</div><div class="a">选工具时先看有没有自动保存。一小时的片打了四十分钟，因为没保存重来一遍，这种损失比软件价格贵得多。</div></div>
+      </div>
+
+      <div class="guide-cta">
+        <div class="k">对应工具</div>
+        <h3>本地视频字幕工作箱 · 看片打轴一体</h3>
+        <p>加载本地视频，拖到时间点输文字，画面上实时预览，一键导出 SRT / ASS。视频不出电脑，全程离线。</p>
+        <a class="btn btn-primary" href="../products/subtitle.html">看看它怎么用 →</a>
+        <div class="note">买断制 · macOS · 具体价格与发货以店铺页面为准</div>
+      </div>
+
+      <div class="related">
+        <h3>相关阅读</h3>
+        <a href="puroplayer.html">播个本地视频，为什么要先登录？</a>
+        <a href="photo-remove-object.html">照片里多余的人怎么去掉，又不想传到网上？</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>小工具，大用处</h4><p class="lead">一组各管一摊的本地工具。不联网、不上传、不订阅。</p></div>
+      <div>
+        <h4>工具</h4>
+        <a href="../products/pdf-mask.html">PDF 隐私涂抹工具</a>
+        <a href="../products/pdf-form.html">PDF 表单填写器</a>
+        <a href="../products/puroplayer.html">PuroPlayer 播放器</a>
+        <a href="../products/subtitle.html">本地视频字幕工作箱</a>
+        <a href="../products/ppt-player.html">PPT Player 放映器</a>
+        <a href="../products/koutu.html">照片去物工具</a>
+      </div>
+      <div>
+        <h4>使用指南</h4>
+        <a href="office-pptx.html">没装 Office 怎么开 PPT</a>
+        <a href="pdf-redact.html">PDF 脱敏怎么才算删干净</a>
+        <a href="pdf-form.html">别人发来的表怎么填</a>
+        <a href="photo-remove-object.html">照片去物不传网上的办法</a>
+        <a href="puroplayer.html">播放器为什么要联网</a>
+        <a href="subtitle.html">给视频打字幕要不要上传</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <a href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener">微信客服</a>
+        <a href="mailto:kf@dabuside.top">kf@dabuside.top</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 小工具，大用处 · 联系邮箱：<a href="mailto:kf@dabuside.top" style="color:#7e8694;text-decoration:none">kf@dabuside.top</a><br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#7e8694;text-decoration:none">京ICP备2025122553号</a></div>
+  </div>
+</footer>
+
+<a class="wxkf-fab" href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener" aria-label="在线咨询：微信扫码联系客服">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 3C6.98 3 2.9 6.4 2.9 10.6c0 2.36 1.34 4.47 3.45 5.87-.18.95-.66 2.06-1.43 2.94-.2.23-.03.6.28.58 1.55-.14 2.94-.78 3.87-1.32.94.26 1.94.4 2.97.4 5.06 0 9.14-3.4 9.14-7.6S17.1 3 12.04 3Zm-3.1 4.63a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Zm6.2 0a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Z"/></svg>
+  <span>在线咨询</span>
+</a>
+
+</body>
+</html>

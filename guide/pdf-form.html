@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>别人发来的 PDF 表，为什么不能直接打字填</title>
+<meta name="description" content="报名表、政审表、体检表发来只说一句「填好发回」，可 PDF 里点不进去。讲清表单域与印刷版式的差别、四条填表办法的代价，以及不把身份证和住址上传到网页工具的自检要点。">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guide.css">
+</head>
+<body class="p-form">
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html"><span class="brand-top">企业本地隐私工具箱</span><span class="brand-sub">小工具，大用处</span></a>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../products/pdf-mask.html"><span class="swatch" style="background:#ff5000"></span>PDF 涂抹</a>
+      <a href="../products/pdf-form.html"><span class="swatch" style="background:#16a34a"></span>PDF 填写</a>
+      <a href="../products/puroplayer.html"><span class="swatch" style="background:#0e6bd6"></span>PuroPlayer</a>
+      <a href="../products/subtitle.html"><span class="swatch" style="background:#6d3bd6"></span>字幕工作箱</a>
+      <a href="../products/ppt-player.html"><span class="swatch" style="background:#2f6bf6"></span>PPT Player</a>
+      <a href="../products/koutu.html"><span class="swatch" style="background:#0f9d8f"></span>照片去物</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <a class="back-home" href="../index.html">← 返回工具集</a>
+    <div class="eyebrow">使用指南 · PDF / 填表</div>
+    <h1>别人发来的 PDF 表，为什么点不进去打字？</h1>
+    <p class="lede">对方永远只说一句"填好发回"。可打开一看，方框是画上去的，横线也是印上去的——光标点不进去，一个字都打不了。这篇讲清原因、四条填法各自的代价，以及一张表上写着身份证号时该怎么处理。</p>
+    <div class="tool-tag"><i></i>本页对应工具：PDF 表单填写器 · Windows</div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="guide-body">
+
+      <h2>先说结论：多数"表"根本没有可填的格子</h2>
+      <p>PDF 其实分两种，外表看一模一样，能不能打字差很远。</p>
+      <p><strong>第一种，带表单域（AcroForm）。</strong>制表的人用专业软件在文件里埋了"字段"，就像网页上的输入框。点一下就能打字，Tab 还能跳到下一个格子。这种表是少数——通常是单位自己的系统自动生成的，比如报名网站导出的确认表。</p>
+      <p><strong>第二种，印刷版式。</strong>就是一张"电子纸"：方框是画上去的四条线，横线是一条直线段，格子之间没有任何"这里可以输入"的信息。你看到的框，在文件眼里和一行正文没区别。</p>
+      <div class="tip plain"><b>判断方法十秒钟：</b>用阅读器打开，鼠标在方框上点一下。有光标闪＝有表单域；点下去毫无反应、只是选中了旁边的字＝印刷版式。政府、学校、医院、保险公司下发的表，绝大多数是第二种。</div>
+
+      <h2>四条填法，各自要付什么代价</h2>
+
+      <h3>办法一：打印出来手写，再拍照或扫描（最土，也最常被用）</h3>
+      <p>打印、签字、手机拍一张发回去。看着省事，代价其实集中在三处：</p>
+      <ul>
+        <li><strong>版式走样。</strong>手机拍出来带透视、带阴影、背景发灰，对方打印出来经常歪的。</li>
+        <li><strong>字迹与清晰度。</strong>小格子写不下、盖章位置被压住；身份证号这种长串数字，拍糊一位就要重来。</li>
+        <li><strong>没法检索。</strong>拍成图片的表，对方也没法复制里面的信息，只能靠人眼录。</li>
+      </ul>
+      <p>一份两份可以忍。可到了"一批人交同一张表"的时候，这条路的成本是按人头翻倍的。</p>
+
+      <h3>办法二：用专业 PDF 编辑器，自己往上面加文本框</h3>
+      <p>Acrobat 这类专业软件确实能解决：手动拖一个文本框，盖在方框位置上，打字，调字号。能交差，但麻烦在于<strong>每一份都要重新对位置</strong>——同一张表 50 份，就是 50 次拖拽对齐，还要处理字体、行距、格子对齐。</p>
+      <p>而且这类软件通常是年费订阅，为了几张表订一年，账算不过来。</p>
+
+      <h3>办法三：在线填表网站（上传 → 编辑 → 下载）</h3>
+      <p>搜"PDF 在线填写"，一大把网站，免费、不用装东西，看起来最划算。它的工作方式是：<strong>先把你的文件传到它的服务器</strong>，在浏览器里编辑，再下载回来。</p>
+      <p>这一步对公开模板无所谓，但请先看一眼你手里这张表上有什么：</p>
+      <ul>
+        <li><strong>政审表</strong>：姓名、身份证号、家庭住址、家庭成员及其工作单位、社会关系。</li>
+        <li><strong>体检表</strong>：姓名、身份证号、既往病史、各项指标。</li>
+        <li><strong>入职登记表</strong>：身份证、住址、紧急联系人电话、银行卡号。</li>
+        <li><strong>签证/银行开户表</strong>：护照号、收入、资产情况。</li>
+      </ul>
+      <div class="tip danger"><b>这类表不是"一份文件"，是一整套身份信息。</b>上传之后，你无法证明对方什么时候删、删没删干净、有没有留在备份里。为了一张表把这一整套交出去，是这笔交易里最不划算的部分。</div>
+
+      <h3>办法四：本地工具自动认格子</h3>
+      <p>思路是把"找格子"这件事交给软件：读取页面上画出来的矩形和横线，判断哪些是给人填的空位，把它们变成可点、可打字的区域；你填完另存为新文件，原件一个字都不动。</p>
+      <p>本站的 <a href="../products/pdf-form.html"><strong>PDF 表单填写器</strong></a> 就是按这个思路做的，同时支持手写签名（在签名处直接手写，不用打印再拍）。关键是<strong>全程在本机完成，不联网，文件不上传</strong>——这一类表格恰恰是最不该离开自己电脑的。</p>
+      <div class="tip">一个诚实的边界：如果原文件是<strong>扫描件（整页就是一张图）</strong>，识别效果取决于图片清不清楚，不能保证一次全对。拿到新表建议先用一份试，确认格子都认得出来再批量用。</div>
+
+      <h2>四条路横向对比</h2>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th>做法</th><th>文件要上传吗</th><th>版式会变吗</th><th>一份要多久</th><th>适合谁</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>打印手写再拍</th><td>不用</td><td class="accent-cell">会走样</td><td>打印+写+拍</td><td>只有一两份、要求手签原件</td></tr>
+            <tr><th>专业编辑器加文本框</th><td>不用</td><td>不变</td><td>要逐份对齐</td><td>偶尔填、已经有该软件</td></tr>
+            <tr><th>在线填表网站</th><td class="accent-cell">必须</td><td>可能错位</td><td>快</td><td>公开模板、不含个人信息的表</td></tr>
+            <tr><th>本地识别 + 填写</th><td>不用</td><td>不变</td><td>熟悉后很快</td><td>政审表、体检表、入职表这类敏感件</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>填完之后，三件事自己过一遍</h2>
+      <ul class="checklist">
+        <li><strong>原件还在不在。</strong>确认软件是"另存为新文件"，原来的空白表没被覆盖——下次还要用。</li>
+        <li><strong>文字能不能被选中。</strong>填进去的内容应该是真文字，对方能复制、能检索，而不是又变成一张图。</li>
+        <li><strong>打印出来对不对齐。</strong>屏幕上齐不等于纸上齐。重要表格先打印一张看，字体有没有被替换、格子有没有压线。</li>
+      </ul>
+
+      <h2>如果你要填的不是一份，而是一批</h2>
+      <p>同一个场景经常变成这样：一张表 × 几十个人。比如新生入学一批 40 份报名表、一个项目进场 200 张工人登记表、一次校招 30 份入职材料——数据其实都在一份 Excel 名单里，却要一份份手工填。</p>
+      <p>这种重复劳动最该被自动化，但前提是表格模板<strong>是别人发来的、改不了的 PDF</strong>。如果模板是可编辑的 Word，用 Word 自带的"邮件合并"就能做，不必另找工具。判断标准很简单：你能编辑模板吗？不能，才轮到专门工具上场。</p>
+      <div class="tip plain">有批量填表的需求（一张表 × 几十人、模板是 PDF），可以<a href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener">加微信说下具体场景</a>——表从哪来、一次多少份、多久来一次。这几个信息比"能不能批量"更能说明该怎么做。</div>
+
+      <h2>几个常被问到的点</h2>
+      <div class="faq">
+        <div class="item"><div class="q">"为什么不干脆把 PDF 转成 Word 再填？"</div><div class="a">可以试，但转出来经常跑版：框线错位、字体替换、表格散架。填完再转回 PDF，对方一看就知道动过。表格越正式，越不建议转。</div></div>
+        <div class="item"><div class="q">"填好的表要按手印/签字，怎么办？"</div><div class="a">两条路：软件里直接手写签名，或者填完打印出来手签再扫描。哪种算数，取决于对方是否要求"原件手签"——不确定就直接问一句，比返工便宜。</div></div>
+        <div class="item"><div class="q">"方框里格子太窄，字打出界怎么办？"</div><div class="a">调字号是常规操作。长串数字（身份证、银行卡）建议缩到能完整落在框内，宁可小一点，也不要跨出格线——跨线打印出来往往被裁掉。</div></div>
+        <div class="item"><div class="q">"对方发来的是扫描件，能用吗？"</div><div class="a">能试，但不保证。扫描件本质是一张图，识别取决于清晰度、有没有倾斜、框线是否连续。先用一份验证，别一上来就整批处理。</div></div>
+        <div class="item"><div class="q">"填完的表，个人信息还在文件里吗？"</div><div class="a">在，这是必然的——表就是用来交这些信息的。所以发出去之前确认收件人、确认传输渠道（别用公开链接），比事后补救有用。</div></div>
+      </div>
+
+      <div class="guide-cta">
+        <div class="k">对应工具</div>
+        <h3>PDF 表单填写器 · 自动认格子，填完另存</h3>
+        <p>把表上画出来的方框和横线变成可填区域，支持手写签名，原件不动。全程本地处理，文件不上传。</p>
+        <a class="btn btn-primary" href="../products/pdf-form.html">看看它怎么用 →</a>
+        <div class="note">买断制 · Windows · 具体价格与发货以店铺页面为准</div>
+      </div>
+
+      <div class="related">
+        <h3>相关阅读</h3>
+        <a href="pdf-redact.html">PDF 里把身份证号涂黑，算删干净了吗？</a>
+        <a href="office-pptx.html">公司电脑没装 Office，怎么打开 pptx？</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>小工具，大用处</h4><p class="lead">一组各管一摊的本地工具。不联网、不上传、不订阅。</p></div>
+      <div>
+        <h4>工具</h4>
+        <a href="../products/pdf-mask.html">PDF 隐私涂抹工具</a>
+        <a href="../products/pdf-form.html">PDF 表单填写器</a>
+        <a href="../products/puroplayer.html">PuroPlayer 播放器</a>
+        <a href="../products/subtitle.html">本地视频字幕工作箱</a>
+        <a href="../products/ppt-player.html">PPT Player 放映器</a>
+        <a href="../products/koutu.html">照片去物工具</a>
+      </div>
+      <div>
+        <h4>使用指南</h4>
+        <a href="office-pptx.html">没装 Office 怎么开 PPT</a>
+        <a href="pdf-redact.html">PDF 脱敏怎么才算删干净</a>
+        <a href="pdf-form.html">别人发来的表怎么填</a>
+        <a href="photo-remove-object.html">照片去物不传网上的办法</a>
+        <a href="puroplayer.html">播放器为什么要联网</a>
+        <a href="subtitle.html">给视频打字幕要不要上传</a>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <a href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener">微信客服</a>
+        <a href="mailto:kf@dabuside.top">kf@dabuside.top</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 小工具，大用处 · 联系邮箱：<a href="mailto:kf@dabuside.top" style="color:#7e8694;text-decoration:none">kf@dabuside.top</a><br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#7e8694;text-decoration:none">京ICP备2025122553号</a></div>
+  </div>
+</footer>
+
+<a class="wxkf-fab" href="https://work.weixin.qq.com/kfid/kfc93ea03d06a71cab2" target="_blank" rel="noopener" aria-label="在线咨询：微信扫码联系客服">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 3C6.98 3 2.9 6.4 2.9 10.6c0 2.36 1.34 4.47 3.45 5.87-.18.95-.66 2.06-1.43 2.94-.2.23-.03.6.28.58 1.55-.14 2.94-.78 3.87-1.32.94.26 1.94.4 2.97.4 5.06 0 9.14-3.4 9.14-7.6S17.1 3 12.04 3Zm-3.1 4.63a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Zm6.2 0a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26Z"/></svg>
+  <span>在线咨询</span>
+</a>
+
+</body>
+</html>
